@@ -1,38 +1,38 @@
 #include <pybind11/pybind11.h>
+#include "ops.h"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
-
-int add(int i, int j) {
-    return i + j;
-}
 
 namespace py = pybind11;
 
 PYBIND11_MODULE(sample_package, m) {
     m.doc() = R"pbdoc(
-        Pybind11 example plugin
-        -----------------------
-
-        .. currentmodule:: sample_package
-
-        .. autosummary::
-           :toctree: _generate
-
-           add
-           subtract
+        Basic operations in C++
     )pbdoc";
 
-    m.def("add", &add, R"pbdoc(
-        Add two numbers
-
-        Some other explanation about the add function.
+    m.def("add", &add<int>, R"pbdoc(
+        Add two integer numbers
     )pbdoc");
 
-    m.def("subtract", [](int i, int j) { return i - j; }, R"pbdoc(
-        Subtract two numbers
+    m.def("add", &add<float>, R"pbdoc(
+        Add two float numbers
+    )pbdoc");
 
-        Some other explanation about the subtract function.
+    m.def("add", &add<double>, R"pbdoc(
+        Add two double numbers
+    )pbdoc");
+
+    m.def("substract", &substract<int>, R"pbdoc(
+        Substract two integer numbers
+    )pbdoc");
+
+    m.def("substract", &substract<float>, R"pbdoc(
+        Substract two float numbers
+    )pbdoc");
+
+    m.def("substract", &substract<double>, R"pbdoc(
+        Substract two double numbers
     )pbdoc");
 
 #ifdef VERSION_INFO
