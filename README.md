@@ -84,3 +84,15 @@ cmake_example.add(1, 2)
 [FAQ]: http://pybind11.rtfd.io/en/latest/faq.html#working-with-ancient-visual-studio-2009-builds-on-windows
 [vs2015_runtime]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [scikit-build]: https://scikit-build.readthedocs.io/en/latest/
+
+## Troubleshooting
+
+* Anaconda: `version 'GLIBCXX_*' not found`. (Debian/apt based systems).
+  * verify that the `gcc-4.9` library is installed. `apt list --installed | grep c++` in debian or systems that use `apt`.
+  * Check that the version is available with: `strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX`.
+  * If the version is available as shown by the previous command, backup the enviroment's `libstdc++.so.6` and link the one in your system:
+
+    ```bash
+    mv -vf ~/anaconda3/envs/${YOUR_ENV}/lib/libstdc++.so.6 ~/anaconda3/envs/${YOUR_ENV}/lib/libstdc++.so.6.old
+    ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ~/anaconda3/envs/${YOUR_ENV}/lib/libstdc++.so.6
+    ```
