@@ -1,5 +1,5 @@
 package:
-  name: cmake_example
+  name: sample_package
   version: 0.0.1
 
 source:
@@ -27,7 +27,7 @@ test:
   requires:
     - pytest
   imports:
-    - cmake_example
+    - sample_package
   source_files:
     - tests
   commands:

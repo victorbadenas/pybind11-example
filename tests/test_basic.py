@@ -1,4 +1,4 @@
-import cmake_example as m
+import sample_package as m
 
 
 def test_main():
