@@ -38,7 +38,6 @@ see the commit history for older versions of Python.
 * Pip 10+ or CMake >= 3.4 (or 3.8+ on Windows, which was the first version to support VS 2015)
 * Ninja or Pip 10+
 
-
 ## Installation
 
 Just clone this repository and pip install. Note the `--recursive` option which is
@@ -52,8 +51,6 @@ pip install ./cmake_example
 With the `setup.py` file included in this example, the `pip install` command will
 invoke CMake and build the pybind11 module as specified in `CMakeLists.txt`.
 
-
-
 ## Building the documentation
 
 Documentation for the example project is generated using Sphinx. Sphinx has the
@@ -62,16 +59,14 @@ the extension module to generate beautiful documentation in a variety formats.
 The following command generates HTML-based reference documentation; for other
 formats please refer to the Sphinx manual:
 
- - `cd cmake_example/docs`
- - `make html`
-
+* `cd cmake_example/docs`
+* `make html`
 
 ## License
 
 Pybind11 is provided under a BSD-style license that can be found in the LICENSE
 file. By using, distributing, or contributing to this project, you agree to the
 terms and conditions of this license.
-
 
 ## Test call
 
